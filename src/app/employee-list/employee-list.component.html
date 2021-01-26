@@ -1,0 +1,49 @@
+
+<nav class = "navbar navbar-expand-sm bg-primary navbar-dark">
+    <ul class ="navbar-nav">
+      <li class = "nav-item">
+        <a routerLink="employees" routerLinkActive="active" class="nav-link">Employee List</a>
+      </li>
+    </ul>
+  </nav>
+  
+  <h1 class="text-center">{{"Employees list"}}</h1>
+  <div class = " container">
+    <router-outlet></router-outlet>
+  </div>
+  <footer class = "footer">
+    <div class= "container">
+      <span>All Rights Reserved 2021</span>
+    </div>
+  
+  
+  </footer>
+<table class= "table table-striped">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Job</th>
+            <th>Department Id</th>
+            <th>Team Id </th>
+            <th>Team Lead </th>
+            <th>Actions</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor = "let employee of employees">
+            <td>{{employee.name}}</td>
+            <td>{{employee.job}}</td>
+            <td>{{employee.departmentId}}</td>
+            <td>{{employee.teamId}}</td>
+            <td>{{employee.teamLead}}</td>
+            <td>
+                <button (click) ="updateEmployee(employee.id)" class= "btn btn-info"> Update</button>
+                <button (click) ="deleteEmployee(employee.id)" class= "btn btn-danger" style="margin-left: 10px" > Delete</button>
+                <button (click) ="employeeDetails(employee.id)" class= "btn btn-info"  style="margin-left: 10px"> View</button>
+
+            </td>
+        </tr>
+    </tbody>
+
+</table>
+
